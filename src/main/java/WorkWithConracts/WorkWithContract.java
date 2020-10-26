@@ -3,10 +3,17 @@ package WorkWithConracts;
 import Contracts.Contract;
 
 import java.util.Arrays;
-import java.util.Comparator;
 
+/**
+ * Класс для работы с контрактами со свойствами <b>Contract[]</b>.
+ * @autor Андрей Соловьем
+ */
 public class WorkWithContract {
+    /** Поле контракты */
+
     private Contract[] contracts;
+    /** Поле последнего индекса для добавления */
+
     private int last_index = 0;
 
     public WorkWithContract() {
@@ -19,6 +26,12 @@ public class WorkWithContract {
 
     public Contract getContractById(int id) {
         return getContracts()[binarySearch(id, 0, getContracts().length - 1)];
+    }
+    public void deleteContractById(int id) {
+        setContract(getContracts()[last_index],binarySearch(id, 0, getContracts().length - 1));
+        setContract(null,last_index);
+        last_index--;
+
     }
 
     public void addNewContract(Contract contract) {
@@ -87,6 +100,9 @@ public class WorkWithContract {
         return contracts;
     }
 
+    public void setContract(Contract contract,int index){
+        this.contracts[index] = contract;
+    }
     public void setContracts(Contract[] contracts) {
         this.contracts = contracts;
     }
