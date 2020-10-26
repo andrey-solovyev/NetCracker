@@ -1,5 +1,7 @@
 package Contracts;
 
+import People.Client;
+
 import java.util.Calendar;
 import java.util.UUID;
 
@@ -8,8 +10,8 @@ public class MobilePhoneContract extends Contract {
     private int megabytes;
     private int sms;
 
-    public MobilePhoneContract(UUID id, Calendar date_contract, Calendar date_end_contract, int minites, int megabytes, int sms) {
-        super(id, date_contract, date_end_contract);
+    public MobilePhoneContract(Calendar date_contract, Calendar date_end_contract, Client client, int minites, int megabytes, int sms) {
+        super(date_contract, date_end_contract, client);
         this.minites = minites;
         this.megabytes = megabytes;
         this.sms = sms;

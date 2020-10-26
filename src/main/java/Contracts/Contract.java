@@ -1,5 +1,7 @@
 package Contracts;
 
+import People.Client;
+
 import java.util.Calendar;
 import java.util.Comparator;
 import java.util.UUID;
@@ -8,14 +10,23 @@ public abstract class Contract implements Comparable<Contract> {
     //private UUID Id; Один из способов сделать уникальный id
     private static int countId;
     private int Id;
-    private String q;
     private Calendar date_contract;
     private Calendar date_end_contract;
+    private Client client;
 
-    public Contract(Calendar date_contract, Calendar date_end_contract) {
+    public Contract(Calendar date_contract, Calendar date_end_contract, Client client) {
         this.Id = ++countId;
         this.date_contract = date_contract;
         this.date_end_contract = date_end_contract;
+        this.client = client;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
 
     public int getId() {

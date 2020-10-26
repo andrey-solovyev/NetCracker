@@ -26,7 +26,9 @@ public class WorkWithContract {
             expandArrays();
         }
         getContracts()[last_index] = contract;
-        quickSort(0, getContracts().length - 1);
+        last_index++;
+        if (last_index>2){
+        quickSort(0, last_index-1);}
     }
 
     public void quickSort(int low, int high) {
