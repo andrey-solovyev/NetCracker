@@ -6,44 +6,87 @@ import java.util.Arrays;
 
 /**
  * Класс для работы с контрактами со свойствами <b>Contract[]</b>.
+ *
  * @autor Андрей Соловьем
  */
 public class WorkWithContract {
-    /** Поле контракты */
+    /**
+     * Поле контракты
+     */
 
     private Contract[] contracts;
-    /** Поле последнего индекса для добавления */
+    /**
+     * Поле последнего индекса для добавления
+     */
 
     private int last_index = 0;
 
+    /**
+     * Конструктор - создание нового объекта
+     */
     public WorkWithContract() {
         this.contracts = new Contract[10];
     }
 
+    /**
+     * Функция для расширения массива
+     */
     private void expandArrays() {
         setContracts(Arrays.copyOf(getContracts(), getContracts().length * 2));
     }
 
+    /**
+     * Функция для получения контракта по id
+     */
     public Contract getContractById(int id) {
         return getContracts()[binarySearch(id, 0, getContracts().length - 1)];
     }
-    public void deleteContractById(int id) {
-        setContract(getContracts()[last_index],binarySearch(id, 0, getContracts().length - 1));
-        setContract(null,last_index);
-        last_index--;
 
+    /**
+     * Функция для удаления контракта по id
+     */
+    public void deleteContractById(int id) {
+        setContract(getContracts()[last_index], binarySearch(id, 0, getContracts().length - 1));
+        setContract(null, last_index);
+        last_index--;
+        if (last_index > 2) {
+            quickSort(0, last_index - 1);
+        }
     }
 
+    /**
+     * Функция для добавления контракта
+     */
     public void addNewContract(Contract contract) {
         if (last_index == getContracts().length) {
             expandArrays();
         }
-        getContracts()[last_index] = contract;
+        setContract(contract,last_index);
         last_index++;
-        if (last_index>2){
-        quickSort(0, last_index-1);}
+        if (last_index > 2) {
+            quickSort(0, last_index - 1);
+        }
     }
-//В чем задумка сортировок? Я попытался уменьшить время на поиск в будущем,при размере больших размерах массива. Скорее это было сделано даже для тренировки
+
+    /**
+     * Функция для добавления контрактов
+     */
+    public void addNewContract(Contract[] contracts) {
+        for (Contract c : contracts) {
+            if (last_index == getContracts().length) {
+                expandArrays();
+            }
+            setContract(c,last_index);
+            last_index++;
+        }
+        if (last_index > 2) {
+            quickSort(0, last_index - 1);
+        }
+    }
+
+    /**
+     * В чем задумка сортировок? Я попытался уменьшить время на поиск в будущем,при размере больших размерах массива. Скорее это было сделано даже для тренировки
+     */
     public void quickSort(int low, int high) {
         if (getContracts().length == 0)
             return;
@@ -78,7 +121,10 @@ public class WorkWithContract {
         if (high > i)
             quickSort(i, high);
     }
-//Обычный бинарный поиск на основе сортированного массива
+
+    /**
+     * Обычный бинарный поиск на основе сортированного массива
+     */
     public int binarySearch(int key, int low, int high) {
         int index = -1;
 
@@ -96,13 +142,20 @@ public class WorkWithContract {
         return index;
     }
 
+    /**
+     * getter and setter
+     */
     public Contract[] getContracts() {
         return contracts;
     }
 
-    public void setContract(Contract contract,int index){
+    /**
+     * изменения контракта по индексу
+     */
+    public void setContract(Contract contract, int index) {
         this.contracts[index] = contract;
     }
+
     public void setContracts(Contract[] contracts) {
         this.contracts = contracts;
     }
