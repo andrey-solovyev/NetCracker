@@ -30,7 +30,7 @@ public class WorkWithContract {
         if (last_index>2){
         quickSort(0, last_index-1);}
     }
-
+//В чем задумка сортировок? Я попытался уменьшить время на поиск в будущем,при размере больших размерах массива. Скорее это было сделано даже для тренировки
     public void quickSort(int low, int high) {
         if (getContracts().length == 0)
             return;
@@ -65,7 +65,7 @@ public class WorkWithContract {
         if (high > i)
             quickSort(i, high);
     }
-
+//Обычный бинарный поиск на основе сортированного массива
     public int binarySearch(int key, int low, int high) {
         int index = -1;
 
