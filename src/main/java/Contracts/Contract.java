@@ -1,12 +1,14 @@
 package Contracts;
 
 import java.util.Calendar;
+import java.util.Comparator;
 import java.util.UUID;
 
-public abstract class Contract {
+public abstract class Contract implements Comparable<Contract> {
     //private UUID Id; Один из способов сделать уникальный id
     private static int countId;
     private int Id;
+    private String q;
     private Calendar date_contract;
     private Calendar date_end_contract;
 
@@ -44,5 +46,10 @@ public abstract class Contract {
     }
     private long RemainingTime(){
         return date_end_contract.getTimeInMillis() - date_contract.getTimeInMillis();
+    }
+
+    @Override
+    public int compareTo(Contract o) {
+        return getId()- o.getId();
     }
 }
