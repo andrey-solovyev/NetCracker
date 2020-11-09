@@ -3,7 +3,7 @@ package People;
 
 import java.util.Calendar;
 /**
- * Класс продукции со свойствами <b>Id</b>, <b>fcs</b>,<b>date_births</b>,<b>is_male</b>,<b>passport_data</b>.
+ * Класс продукции со свойствами <b>Id</b>, <b>fcs</b>,<b>dateBirths</b>,<b>isMale</b>,<b>passportData</b>.
  * @autor Андрей Соловьем
  */
 public class Client {
@@ -14,25 +14,25 @@ private static int countId;
     /** Поле фио */
     private String fcs;
     /** Поле дата_рождения */
-    private Calendar date_births;
+    private Calendar dateBirths;
     /** Поле пол */
-    private boolean is_male;
+    private boolean isMale;
     /** Поле номер_серия_паспорта */
-    private String passport_data;
+    private String passportData;
     /**
      * Конструктор - создание нового объекта с определенными значениями
      * @param fcs - фио
-     * @param date_births - дата_рождения
-     * @param is_male - пол
-     * @param passport_data - номер_серия_паспорта
+     * @param dateBirths - дата_рождения
+     * @param isMale - пол
+     * @param passportData - номер_серия_паспорта
      * @see Client()
      */
-    public Client(String fcs, Calendar date_births, boolean is_male, String passport_data) {
+    public Client(String fcs, Calendar dateBirths, boolean isMale, String passportData) {
         Id = ++countId;
         this.fcs = fcs;
-        this.date_births = date_births;
-        this.is_male = is_male;
-        this.passport_data = passport_data;
+        this.dateBirths = dateBirths;
+        this.isMale = isMale;
+        this.passportData = passportData;
     }
     /** getter and setter */
 
@@ -52,35 +52,35 @@ private static int countId;
         this.fcs = fcs;
     }
 
-    public Calendar getDate_births() {
-        return date_births;
+    public Calendar getdateBirths() {
+        return dateBirths;
     }
 
-    public void setDate_births(Calendar date_births) {
-        this.date_births = date_births;
+    public void setdateBirths(Calendar dateBirths) {
+        this.dateBirths = dateBirths;
     }
 
-    public boolean isIs_male() {
-        return is_male;
+    public boolean isisMale() {
+        return isMale;
     }
 
-    public void setIs_male(boolean is_male) {
-        this.is_male = is_male;
+    public void setisMale(boolean isMale) {
+        this.isMale = isMale;
     }
 
-    public String getPassport_data() {
-        return passport_data;
+    public String getpassportData() {
+        return passportData;
     }
 
-    public void setPassport_data(String passport_data) {
-        this.passport_data = passport_data;
+    public void setpassportData(String passportData) {
+        this.passportData = passportData;
     }
     /**
      * Функция получения возраста
      * @return возвращает влзраст клиента
      */
     public String getAge(){
-        long diff = Calendar.getInstance().getTimeInMillis() - getDate_births().getTimeInMillis();
+        long diff = Calendar.getInstance().getTimeInMillis() - getdateBirths().getTimeInMillis();
         long ddays = diff / (24 * 60 * 60 * 1000);
         long years = ddays/365;
         return ""+years;

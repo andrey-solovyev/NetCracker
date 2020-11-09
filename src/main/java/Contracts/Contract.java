@@ -5,7 +5,7 @@ import People.Client;
 import java.util.Calendar;
 
 /**
- * Класс Контракт со свойствами <b>Id</b>, <b>date_contract</b>,<b>date_end_contract</b>,<b>client</b>.
+ * Класс Контракт со свойствами <b>Id</b>, <b>dateContract</b>,<b>dateEndContract</b>,<b>client</b>.
  * @autor Андрей Соловьем
  */
 public abstract class Contract implements Comparable<Contract> {
@@ -14,22 +14,22 @@ public abstract class Contract implements Comparable<Contract> {
     /** Поле id */
     private int Id;
     /** Поле Календарь начала контракта */
-    private Calendar date_contract;
+    private Calendar dateContract;
     /** Поле Календарь окончания контракта  */
-    private Calendar date_end_contract;
+    private Calendar dateEndContract;
     /** Поле клиент */
     private Client client;
     /**
      * Конструктор - создание нового объекта с определенными значениями
-     * @param date_contract - дата начала
-     * @param date_end_contract - дата конца
+     * @param dateContract - дата начала
+     * @param dateEndContract - дата конца
      * @param client - клиент
      * @see Contract()
      */
-    public Contract(Calendar date_contract, Calendar date_end_contract, Client client) {
+    public Contract(Calendar dateContract, Calendar dateEndContract, Client client) {
         this.Id = ++countId;
-        this.date_contract = date_contract;
-        this.date_end_contract = date_end_contract;
+        this.dateContract = dateContract;
+        this.dateEndContract = dateEndContract;
         this.client = client;
     }
 
@@ -51,20 +51,20 @@ public abstract class Contract implements Comparable<Contract> {
         Id = id;
     }
 
-    public Calendar getDate_contract() {
-        return date_contract;
+    public Calendar getdateContract() {
+        return dateContract;
     }
 
-    public void setDate_contract(Calendar date_contract) {
-        this.date_contract = date_contract;
+    public void setdateContract(Calendar dateContract) {
+        this.dateContract = dateContract;
     }
 
-    public Calendar getDate_end_contract() {
-        return date_end_contract;
+    public Calendar getdateEndContract() {
+        return dateEndContract;
     }
 
-    public void setDate_end_contract(Calendar date_end_contract) {
-        this.date_end_contract = date_end_contract;
+    public void setdateEndContract(Calendar dateEndContract) {
+        this.dateEndContract = dateEndContract;
     }
     public String getRemainingTime(){
         return RemainingTime();
@@ -75,7 +75,7 @@ public abstract class Contract implements Comparable<Contract> {
      * @return возвращает строку с оставшимся днями
      */
     private String RemainingTime(){
-        long diff = getDate_contract().getTimeInMillis() - getDate_end_contract().getTimeInMillis();
+        long diff = getdateContract().getTimeInMillis() - getdateEndContract().getTimeInMillis();
         long ddays = diff / (24 * 60 * 60 * 1000);
         return "Осталось дней: "+ddays;
     }

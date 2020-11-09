@@ -2,7 +2,9 @@ package WorkWithConracts;
 
 import Contracts.Contract;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Класс для работы с контрактами со свойствами <b>Contract[]</b>.
@@ -68,6 +70,9 @@ public class WorkWithContract {
         }
     }
 
+    public List<Contract> getAllContract(){
+        return Arrays.asList(getContracts());
+    }
     /**
      * Функция для добавления контрактов
      */
