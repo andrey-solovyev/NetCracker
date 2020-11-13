@@ -5,6 +5,7 @@ import Contracts.Contract;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Predicate;
 
 /**
  * Класс для работы с контрактами со свойствами <b>Contract[]</b>.
@@ -127,6 +128,17 @@ public class WorkWithContract {
             quickSort(i, high);
     }
 
+    public List<Contract> findBy(Predicate<Contract> predicate) {
+        List<Contract> result = new ArrayList<>();
+
+        for (int i = 0; i < getContracts().length; i++) {
+            Contract curr = getContracts()[i];
+            if (predicate.test(curr)) {
+                result.add(curr);
+            }
+        }
+        return result;
+    }
     /**
      * Обычный бинарный поиск на основе сортированного массива
      */
