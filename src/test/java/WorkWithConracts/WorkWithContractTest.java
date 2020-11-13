@@ -6,9 +6,12 @@ import Contracts.EthernetContract;
 import Contracts.MobilePhoneContract;
 import Packages.Package;
 import People.Client;
+import Sorts.Sort;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.GregorianCalendar;
 
 import static org.junit.Assert.*;
@@ -36,6 +39,11 @@ public class WorkWithContractTest {
         workWithContract.addNewContract(contract4);
         workWithContract.addNewContract(contract1);
         workWithContract.addNewContract(contract2);
+        Sort<Contract> sort=new Sort<>();
+        Comparator<Contract> comparator = (o1,o2)->{if (o1.getId()== o1.getId()) return 0;
+        return o1.getId() > o2.getId() ? 1 : -1;};
+
+        sort.bubbleSort(comparator,workWithContract.getContracts(),workWithContract.getLast_index());
         WorkWithContract workWithContract1=new WorkWithContract();
         workWithContract1.addNewContract(contract);
         workWithContract1.addNewContract(contract1);

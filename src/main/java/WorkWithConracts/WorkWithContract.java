@@ -66,9 +66,9 @@ public class WorkWithContract {
         }
         setContract(contract,last_index);
         last_index++;
-        if (last_index > 2) {
-            quickSort(0, last_index - 1);
-        }
+//        if (last_index > 2) {
+//            quickSort(0, last_index - 1);
+//        }
     }
 
     public List<Contract> getAllContract(){
@@ -175,5 +175,9 @@ public class WorkWithContract {
 
     public void setContracts(Contract[] contracts) {
         this.contracts = contracts;
+    }
+
+    public int getLast_index() {
+        return last_index;
     }
 }

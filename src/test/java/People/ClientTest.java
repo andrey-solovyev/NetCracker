@@ -18,7 +18,7 @@ public class ClientTest {
     @Test
     public void getAge() {
         Client client=new Client("Ivan",new GregorianCalendar(1963, 0 , 25),true,"3333333333");
-        long diff = Calendar.getInstance().getTimeInMillis() - client.getDate_births().getTimeInMillis();
+        long diff = Calendar.getInstance().getTimeInMillis() - client.getdateBirths().getTimeInMillis();
         long ddays = diff / (24 * 60 * 60 * 1000);
         long years = ddays/365;
         System.out.println("Your Years Difference="+years);

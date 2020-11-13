@@ -6,7 +6,7 @@ import java.util.Calendar;
  * Класс продукции со свойствами <b>Id</b>, <b>fcs</b>,<b>dateBirths</b>,<b>isMale</b>,<b>passportData</b>.
  * @autor Андрей Соловьем
  */
-public class Client {
+public class Client implements Comparable<Client>{
 //Клиент - отдельная сущность ID, фио, дата_рождения, пол, номер_серия_паспорта
 private static int countId;
     /** Поле id */
@@ -84,5 +84,10 @@ private static int countId;
         long ddays = diff / (24 * 60 * 60 * 1000);
         long years = ddays/365;
         return ""+years;
+    }
+
+    @Override
+    public int compareTo(Client o) {
+        return getId()-o.getId();
     }
 }
