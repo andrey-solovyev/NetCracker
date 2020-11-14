@@ -1,9 +1,12 @@
 package WorkWithConracts;
 
 import Contracts.Contract;
+import Sorts.ISorter;
+import Sorts.QuickSort;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -22,7 +25,13 @@ public class WorkWithContract {
      * Поле последнего индекса для добавления
      */
 
-    private int last_index = 0;
+    private int lastIndex = 0;
+
+
+    /**
+     * Создание сортировки
+     */
+    private ISorter<Contract> sorter = new QuickSort<>();
 
     /**
      * Конструктор - создание нового объекта
@@ -49,11 +58,11 @@ public class WorkWithContract {
      * Функция для удаления контракта по id
      */
     public void deleteContractById(int id) {
-        setContract(getContracts()[last_index], binarySearch(id, 0, getContracts().length - 1));
-        setContract(null, last_index);
-        last_index--;
-        if (last_index > 2) {
-            quickSort(0, last_index - 1);
+        setContract(getContracts()[lastIndex], binarySearch(id, 0, getContracts().length - 1));
+        setContract(null, lastIndex);
+        lastIndex--;
+        if (lastIndex > 2) {
+            quickSort(0, lastIndex - 1);
         }
     }
 
@@ -61,32 +70,33 @@ public class WorkWithContract {
      * Функция для добавления контракта
      */
     public void addNewContract(Contract contract) {
-        if (last_index == getContracts().length) {
+        if (lastIndex == getContracts().length) {
             expandArrays();
         }
-        setContract(contract,last_index);
-        last_index++;
-//        if (last_index > 2) {
-//            quickSort(0, last_index - 1);
+        setContract(contract, lastIndex);
+        lastIndex++;
+//        if (lastIndex > 2) {
+//            quickSort(0, lastIndex - 1);
 //        }
     }
 
-    public List<Contract> getAllContract(){
+    public List<Contract> getAllContract() {
         return Arrays.asList(getContracts());
     }
+
     /**
      * Функция для добавления контрактов
      */
     public void addNewContract(Contract[] contracts) {
         for (Contract c : contracts) {
-            if (last_index == getContracts().length) {
+            if (lastIndex == getContracts().length) {
                 expandArrays();
             }
-            setContract(c,last_index);
-            last_index++;
+            setContract(c, lastIndex);
+            lastIndex++;
         }
-        if (last_index > 2) {
-            quickSort(0, last_index - 1);
+        if (lastIndex > 2) {
+            quickSort(0, lastIndex - 1);
         }
     }
 
@@ -128,7 +138,7 @@ public class WorkWithContract {
             quickSort(i, high);
     }
 
-    public List<Contract> findBy(Predicate<Contract> predicate) {
+    public List<Contract> findContract(Predicate<Contract> predicate) {
         List<Contract> result = new ArrayList<>();
 
         for (int i = 0; i < getContracts().length; i++) {
@@ -139,6 +149,7 @@ public class WorkWithContract {
         }
         return result;
     }
+
     /**
      * Обычный бинарный поиск на основе сортированного массива
      */
@@ -160,6 +171,13 @@ public class WorkWithContract {
     }
 
     /**
+     * сортировка
+     */
+    public void sort(Comparator<Contract> comparator) {
+        sorter.sort(comparator, getContracts(), getlastIndex());
+    }
+
+    /**
      * getter and setter
      */
     public Contract[] getContracts() {
@@ -177,7 +195,7 @@ public class WorkWithContract {
         this.contracts = contracts;
     }
 
-    public int getLast_index() {
-        return last_index;
+    public int getlastIndex() {
+        return lastIndex;
     }
 }

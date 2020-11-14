@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c0445cdb-6ee5-4d49-adf1-02dc59983415" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/People/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/People/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Sorts/Sort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Sorts/Sort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/WorkWithConracts/WorkWithContract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/WorkWithConracts/WorkWithContract.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Contracts/ContractTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Contracts/ContractTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/People/ClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/People/ClientTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Sorts/Sort.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/WorkWithConracts/WorkWithContractTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/WorkWithConracts/WorkWithContractTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,17 +38,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit4 Test Class" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>getContracts()</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>contract</replace>
-    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -226,6 +212,7 @@
       <workItem from="1603727486837" duration="11405000" />
       <workItem from="1604927758059" duration="2391000" />
       <workItem from="1605211203896" duration="2325000" />
+      <workItem from="1605383703554" duration="627000" />
     </task>
     <task id="LOCAL-00001" summary="add sort and search">
       <created>1603729070587</created>
@@ -255,7 +242,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603741806346</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add all sorts">
+      <created>1605256163041</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1605256163041</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -294,7 +288,8 @@
     <MESSAGE value="Test" />
     <MESSAGE value="Tests" />
     <MESSAGE value="Add all tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add all tests" />
+    <MESSAGE value="add all sorts" />
+    <option name="LAST_COMMIT_MESSAGE" value="add all sorts" />
   </component>
   <component name="masterDetails">
     <states>
