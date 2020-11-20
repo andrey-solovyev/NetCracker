@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c0445cdb-6ee5-4d49-adf1-02dc59983415" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Sorts/Sort.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/WorkWithConracts/WorkWithContractTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/WorkWithConracts/WorkWithContractTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -212,7 +210,8 @@
       <workItem from="1603727486837" duration="11405000" />
       <workItem from="1604927758059" duration="2391000" />
       <workItem from="1605211203896" duration="2325000" />
-      <workItem from="1605383703554" duration="627000" />
+      <workItem from="1605383703554" duration="1508000" />
+      <workItem from="1605858526916" duration="325000" />
     </task>
     <task id="LOCAL-00001" summary="add sort and search">
       <created>1603729070587</created>
@@ -249,7 +248,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605256163041</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Replace sort">
+      <created>1605384605662</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1605384605662</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -289,7 +295,8 @@
     <MESSAGE value="Tests" />
     <MESSAGE value="Add all tests" />
     <MESSAGE value="add all sorts" />
-    <option name="LAST_COMMIT_MESSAGE" value="add all sorts" />
+    <MESSAGE value="Replace sort" />
+    <option name="LAST_COMMIT_MESSAGE" value="Replace sort" />
   </component>
   <component name="masterDetails">
     <states>
