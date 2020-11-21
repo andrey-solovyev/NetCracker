@@ -51,11 +51,6 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1" />
-    <option name="width" value="1103" />
-    <option name="height" value="1047" />
-  </component>
   <component name="ProjectId" id="1k3SPQfrS79GnzWwVlegKWiw6Q3" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
@@ -211,7 +206,7 @@
       <workItem from="1604927758059" duration="2391000" />
       <workItem from="1605211203896" duration="2325000" />
       <workItem from="1605383703554" duration="1508000" />
-      <workItem from="1605858526916" duration="325000" />
+      <workItem from="1605858526916" duration="5554000" />
     </task>
     <task id="LOCAL-00001" summary="add sort and search">
       <created>1603729070587</created>
@@ -255,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605384605662</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Why didn't git add the necessary files(Sorts)?">
+      <created>1605859014882</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1605859014882</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -296,7 +298,8 @@
     <MESSAGE value="Add all tests" />
     <MESSAGE value="add all sorts" />
     <MESSAGE value="Replace sort" />
-    <option name="LAST_COMMIT_MESSAGE" value="Replace sort" />
+    <MESSAGE value="Why didn't git add the necessary files(Sorts)?" />
+    <option name="LAST_COMMIT_MESSAGE" value="Why didn't git add the necessary files(Sorts)?" />
   </component>
   <component name="masterDetails">
     <states>
