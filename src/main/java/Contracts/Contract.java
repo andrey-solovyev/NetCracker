@@ -11,12 +11,15 @@ import java.util.Calendar;
 public abstract class Contract implements Comparable<Contract> {
     //private UUID Id; Один из способов сделать уникальный id
     private static int countId;
+    private static int countContract;
     /** Поле id */
     private int Id;
     /** Поле Календарь начала контракта */
     private Calendar dateContract;
     /** Поле Календарь окончания контракта  */
     private Calendar dateEndContract;
+    /** Поле номер контракта */
+    private int numberContract;
     /** Поле клиент */
     private Client client;
     /**
@@ -28,6 +31,8 @@ public abstract class Contract implements Comparable<Contract> {
      */
     public Contract(Calendar dateContract, Calendar dateEndContract, Client client) {
         this.Id = ++countId;
+        /** Умножим на 1.5 и таким образом не будет совпадать с id*/
+        this.numberContract=(int)(countContract*1.5);
         this.dateContract = dateContract;
         this.dateEndContract = dateEndContract;
         this.client = client;
