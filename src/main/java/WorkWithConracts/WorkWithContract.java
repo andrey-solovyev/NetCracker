@@ -176,7 +176,15 @@ public class WorkWithContract {
     public void sort(Comparator<Contract> comparator) {
         sorter.sort(comparator, getContracts(), getlastIndex());
     }
-
+    /**
+     * Проверка на существование человека в контрактах
+     */
+    public boolean isPersonInContracts(String passport){
+        for (int i=0;i<lastIndex;i++){
+            if (getContracts()[i].getClient().getpassportData().equals(passport)) return true;
+        }
+        return false;
+    }
     /**
      * getter and setter
      */

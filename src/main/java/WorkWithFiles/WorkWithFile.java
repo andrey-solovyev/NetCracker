@@ -21,7 +21,9 @@ import static java.lang.Integer.*;
  * Формат линии в файле
  */
 
-/** ДатаНачалаКонтракта; ДатаКонцаКонтракта; ФИОКлинета;ПолКлиента;ДатаРождения;ДанныеПаспорта;ТипКонтракта;ДопИнформацияПоКонтракту; */
+/**
+ * ДатаНачалаКонтракта; ДатаКонцаКонтракта; ФИОКлинета;ПолКлиента;ДатаРождения;ДанныеПаспорта;ТипКонтракта;ДопИнформацияПоКонтракту;
+ */
 
 public class WorkWithFile {
     public void readFileCsv(String pathToFile, WorkWithContract workWithContract) {
@@ -29,9 +31,11 @@ public class WorkWithFile {
         try (BufferedReader br = new BufferedReader(new FileReader(pathToFile))) {
 
             while ((line = br.readLine()) != null) {
-                //use comma as separator
                 //за разделение берем знак ;
-                workWithContract.addNewContract(parseLine(line.split(";")));
+                Contract contract = parseLine(line.split(";"));
+                if (!workWithContract.isPersonInContracts(contract.getClient().getpassportData())) {
+                    workWithContract.addNewContract(contract);
+                }
             }
 
         } catch (IOException e) {
