@@ -45,6 +45,7 @@ public class WorkWithFile {
 
     private Contract parseLine(String[] elements) {
         Contract contract = null;
+
 //        format calendar 2000-00-00 (year-month-day)=>
         String[] dateStartContract = elements[0].split("-");
         String[] dateEndContract = elements[1].split("-");

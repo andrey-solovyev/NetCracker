@@ -34,6 +34,10 @@ private static int countId;
         this.isMale = isMale;
         this.passportData = passportData;
     }
+
+    public Client() {
+    }
+
     /** getter and setter */
 
     public int getId() {
