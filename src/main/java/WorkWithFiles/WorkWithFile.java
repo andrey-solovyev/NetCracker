@@ -5,6 +5,7 @@ import Contracts.Contract;
 import Contracts.DigitalTVContract;
 import Contracts.EthernetContract;
 import Contracts.MobilePhoneContract;
+import Exceptions.ValidatorException;
 import Packages.Package;
 import People.Client;
 import WorkWithConracts.WorkWithContract;
@@ -36,7 +37,7 @@ public class WorkWithFile {
             while ((line = br.readLine()) != null) {
                 //за разделение берем знак ;
                 Contract contract = parseLine(line.split(";"));
-                if (!workWithContract.isPersonInContracts(contract.getClient().getpassportData())) {
+                if (contract!=null && !workWithContract.isPersonInContracts(contract.getClient().getpassportData())) {
                     workWithContract.addNewContract(contract);
                 }
             }
@@ -59,40 +60,38 @@ public class WorkWithFile {
         String[] dateBirthsString = elements[4].split("-");
         Calendar dateBirths = new GregorianCalendar(parseInt(dateBirthsString[0]), parseInt(dateBirthsString[1]), parseInt(dateBirthsString[2]));
         Client client = new Client(fcs, dateBirths, isMale, elements[5]);
-        if (parseInt(elements[6]) == 1) {
-            Package p = null;
-            if (elements[7].equals("SMALL")) {
-                p = Package.SMALL;
-            } else if (elements[7].equals("STANDART")) {
-                p = Package.STANDART;
-            } else if (elements[7].equals("EXTRA")) {
-                p = Package.EXTRA;
-            }
-            ContractTVValidator contractTVValidator=new ContractTVValidator();
-            try {
+        try {
+            if (parseInt(elements[6]) == 1) {
+                Package p = null;
+                if (elements[7].equals("SMALL")) {
+                    p = Package.SMALL;
+                } else if (elements[7].equals("STANDART")) {
+                    p = Package.STANDART;
+                } else if (elements[7].equals("EXTRA")) {
+                    p = Package.EXTRA;
+                }
+                ContractTVValidator contractTVValidator = new ContractTVValidator();
                 System.out.println(contractTVValidator.check(new DigitalTVContract(dataStart, dataEnd, client, p)));
                 contract = new DigitalTVContract(dataStart, dataEnd, client, p);
-            } catch (Exception e){
-                System.out.println(e);
+
             }
-        }
-        if (parseInt(elements[6]) == 2) {
-            EthernetContractValidator contractTVValidator=new EthernetContractValidator();
-            try {
+            if (parseInt(elements[6]) == 2) {
+                EthernetContractValidator contractTVValidator = new EthernetContractValidator();
+
                 System.out.println(contractTVValidator.check(new EthernetContract(dataStart, dataEnd, client, parseInt(elements[7]))));
                 contract = new EthernetContract(dataStart, dataEnd, client, parseInt(elements[7]));
-            } catch (Exception e){
-                System.out.println(e);
+
             }
-        }
-        if (parseInt(elements[6]) == 3) {
-            MobileContractValidator validator=new MobileContractValidator();
-            try {
+            if (parseInt(elements[6]) == 3) {
+                MobileContractValidator validator = new MobileContractValidator();
+
                 System.out.println(validator.check(new MobilePhoneContract(dataStart, dataEnd, client, parseInt(elements[7]), parseInt(elements[8]), parseInt(elements[9]))));
                 contract = new MobilePhoneContract(dataStart, dataEnd, client, parseInt(elements[7]), parseInt(elements[8]), parseInt(elements[9]));
-            } catch (Exception e){
-                System.out.println(e);
+
             }
+        } catch (ValidatorException e){
+            System.out.println(e);
+            return null;
         }
 
         return contract;
