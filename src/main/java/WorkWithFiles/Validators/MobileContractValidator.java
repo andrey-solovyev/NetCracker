@@ -1,24 +1,16 @@
 package WorkWithFiles.Validators;
 
 import Contracts.DigitalTVContract;
+import Contracts.MobilePhoneContract;
 import Exceptions.ValidatorException;
 
 public class MobileContractValidator {
-    public String check(DigitalTVContract digitalTVContract) throws ValidatorException {
+    public String check(MobilePhoneContract ethernetContract) throws ValidatorException {
         try {
-            switch (digitalTVContract.getpackageTv()) {
-                case SMALL:
-                    break;
-                case STANDART:
-                    break;
-                case EXTRA:
-                    break;
-                default:
-                    throw new ValidatorException("Problem with package tv ");
-            }
+        if (ethernetContract.getSms() <0 || ethernetContract.getMegabytes() <0 || ethernetContract.getMinites() <0){
+            return "Red risk. Check max speed";
+        }
             return "Ok";
-        } catch (ValidatorException e) {
-            throw e;
         } catch (Exception e) {
             throw new ValidatorException(e);
         }

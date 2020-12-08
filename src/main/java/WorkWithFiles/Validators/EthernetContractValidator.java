@@ -11,8 +11,6 @@ public class EthernetContractValidator {
                 return "Red risk. Check max speed";
             }
             return "Ok";
-        } catch (ValidatorException e) {
-            throw e;
         } catch (Exception e) {
             throw new ValidatorException(e);
         }

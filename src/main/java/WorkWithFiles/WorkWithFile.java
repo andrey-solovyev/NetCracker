@@ -8,6 +8,9 @@ import Contracts.MobilePhoneContract;
 import Packages.Package;
 import People.Client;
 import WorkWithConracts.WorkWithContract;
+import WorkWithFiles.Validators.ContractTVValidator;
+import WorkWithFiles.Validators.EthernetContractValidator;
+import WorkWithFiles.Validators.MobileContractValidator;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -65,13 +68,31 @@ public class WorkWithFile {
             } else if (elements[7].equals("EXTRA")) {
                 p = Package.EXTRA;
             }
-            contract = new DigitalTVContract(dataStart, dataEnd, client, p);
+            ContractTVValidator contractTVValidator=new ContractTVValidator();
+            try {
+                System.out.println(contractTVValidator.check(new DigitalTVContract(dataStart, dataEnd, client, p)));
+                contract = new DigitalTVContract(dataStart, dataEnd, client, p);
+            } catch (Exception e){
+                System.out.println(e);
+            }
         }
         if (parseInt(elements[6]) == 2) {
-            contract = new EthernetContract(dataStart, dataEnd, client, parseInt(elements[7]));
+            EthernetContractValidator contractTVValidator=new EthernetContractValidator();
+            try {
+                System.out.println(contractTVValidator.check(new EthernetContract(dataStart, dataEnd, client, parseInt(elements[7]))));
+                contract = new EthernetContract(dataStart, dataEnd, client, parseInt(elements[7]));
+            } catch (Exception e){
+                System.out.println(e);
+            }
         }
         if (parseInt(elements[6]) == 3) {
-            contract = new MobilePhoneContract(dataStart, dataEnd, client, parseInt(elements[7]), parseInt(elements[8]), parseInt(elements[9]));
+            MobileContractValidator validator=new MobileContractValidator();
+            try {
+                System.out.println(validator.check(new MobilePhoneContract(dataStart, dataEnd, client, parseInt(elements[7]), parseInt(elements[8]), parseInt(elements[9]))));
+                contract = new MobilePhoneContract(dataStart, dataEnd, client, parseInt(elements[7]), parseInt(elements[8]), parseInt(elements[9]));
+            } catch (Exception e){
+                System.out.println(e);
+            }
         }
 
         return contract;
